@@ -13,12 +13,13 @@ import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import telas.Entrar;
 
 /**
  *
  * @author Robson de Jesus
  */
-public class client {
+public class Client {
     
     private String nomeCliente;
     private String ipCliente;
@@ -29,14 +30,14 @@ public class client {
     private JSONArray qtdUsuariosOnlines;
     private boolean execute;
     
-    public client(String nome, String ip, String porta, String serverIp) {
+    public Client(String nome, String ip, String porta, String serverIp) {
         this.nomeCliente = nome;
         this.ipCliente = ip;
         this.porta = porta;
         this.stringServerIp = serverIp;
     }
 
-    public client() {
+    public Client() {
     }
 
     public void conectarServidor(String ip) throws IOException {
@@ -130,13 +131,19 @@ public class client {
 
 
     public void listagemUsuarios(String mensagem) {
-        
+        try{
+            JSONParser jParser = new JSONParser();
+            Object obj = jParser.parse(mensagem);
+        }catch(ParseException ex){
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public static void main(String[] args) throws IOException {
 
-
+            Entrar login = new Entrar(); 
+            login.setVisible(true);
 
     }
 }

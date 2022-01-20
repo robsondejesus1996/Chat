@@ -28,18 +28,18 @@ public class ControleAcessos implements Runnable{
         String dados;
         executando = true;
         while (executando) {
-            dados = ControleMensagens.recebeDados(sock);
-            JSONObject jobj = ControleMensagens.parserDados(dados);
+            dados = ControleMensagens.dadosRecebidos(sock);
+            JSONObject jobj = ControleMensagens.dadosJson(dados);
             if (jobj.get("instrucao") == null) {
-                server.addUser(dados);
+                server.adicionarUsuario(dados);
                 System.out.println("Novo usuário cadastrado!");
             } else {
                 if (jobj.get("instrucao").equals("listar")) {
-                    String retorno = server.getUsers();
-                    ControleMensagens.enviaDados(retorno, sock);
+                    String retorno = server.obterUsuarios();
+                    ControleMensagens.dadosEnviados(retorno, sock);
                 } else {
                     if (jobj.get("instrucao").equals("off")) {
-                        server.setUsuarios(server.excluirUser(dados));
+                        server.definirUsuarios(server.deletarUsuario(dados));
                         executando = false;
                         try {
                             sock.close();
@@ -48,7 +48,7 @@ public class ControleAcessos implements Runnable{
                         }
                     } else {
                         if (jobj.get("instrucao").equals("excluir")) {
-                            server.setUsuarios(server.excluirUser(dados));
+                            server.definirUsuarios(server.deletarUsuario(dados));
                         }
                     }
                 }

@@ -5,6 +5,8 @@
  */
 package telas;
 
+import java.net.Socket;
+
 /**
  *
  * @author Robson de Jesus
@@ -14,8 +16,18 @@ public class Conversa extends javax.swing.JFrame {
     /**
      * Creates new form Conversa
      */
+    
     public Conversa() {
         initComponents();
+    }
+
+    public Conversa(OpcoesUsuarios opcoes, Socket sock, String clientInfos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    public void mensagemDados(String dados){
+        
     }
 
     /**

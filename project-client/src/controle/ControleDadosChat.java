@@ -32,7 +32,30 @@ public class ControleDadosChat implements Runnable {
         String dados;
         executando = true;
         while (executando) {
-            
+            dados = ControleMensagens.dadosRecebidos(sock);
+            JSONObject jobj = ControleMensagens.dadosJson(dados);
+            String clientInfos = jobj.get("nome") + ";" + jobj.get("enderecoip") + ";" + jobj.get("porta");
+            if (jobj.get("instrucao") == null) {
+                if (chatRun == false) {
+                    chatRun = true;
+                    conversa = new Conversa(opcoes, sock, clientInfos);
+                }else{
+                    conversa.mensagemDados(dados);
+                }
+            } else {
+                if (jobj.get("instrucao").equals("off")) {
+                    if (chatRun) {
+                        chatRun = false;
+                        try {
+                            sock.close();
+                        } catch (IOException ex) {
+                            System.err.println("Erro ao encerrar chat");
+                        }
+                        conversa.dispose();
+                    }
+                    executando = false;
+                }
+            }
         }
     }
 

@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import servidor.Server;
 import telas.Entrar;
 
 /**
@@ -20,7 +21,7 @@ import telas.Entrar;
  * @author Robson de Jesus
  */
 public class Client {
-    
+
     private String nomeCliente;
     private String ipCliente;
     private String porta;
@@ -29,7 +30,7 @@ public class Client {
     private Socket usuarioSocket;
     private JSONArray qtdUsuariosOnlines;
     private boolean execute;
-    
+
     public Client(String nome, String ip, String porta, String serverIp) {
         this.nomeCliente = nome;
         this.ipCliente = ip;
@@ -41,8 +42,8 @@ public class Client {
     }
 
     public void conectarServidor(String ip) throws IOException {
-        
-
+        usuarioSocket = new Socket(ip, Server.PORTASERVIDOR);
+        System.out.println("CONECTADO AO SERVIDOR");
     }
 
     public String obterServidorIp() {
@@ -76,6 +77,7 @@ public class Client {
     public String getIpCliente() {
         return ipCliente;
     }
+    
 
     public void setIpCliente(String ipCliente) {
         this.ipCliente = ipCliente;
@@ -129,12 +131,14 @@ public class Client {
         this.execute = execute;
     }
 
-
     public void listagemUsuarios(String mensagem) {
-        try{
+        try {
             JSONParser jParser = new JSONParser();
+
             Object obj = jParser.parse(mensagem);
-        }catch(ParseException ex){
+
+            this.qtdUsuariosOnlines = (JSONArray) obj;
+        } catch (ParseException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -142,8 +146,8 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-            Entrar login = new Entrar(); 
-            login.setVisible(true);
+        Entrar login = new Entrar();
+        login.setVisible(true);
 
     }
 }

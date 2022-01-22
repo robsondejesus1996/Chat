@@ -5,6 +5,13 @@
  */
 package telas;
 
+import controle.ControleMensagens;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import modelo.Client;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author Robson de Jesus
@@ -14,8 +21,57 @@ public class Entrar extends javax.swing.JFrame {
     /**
      * Creates new form Entrar
      */
+    
+    private Client c;
+    
     public Entrar() {
         initComponents();
+    }
+    
+    
+     private boolean loginVerificacao(JSONArray listUsers){
+         JSONObject jobj = new JSONObject();
+        boolean b = true;
+        for (Object user : listUsers) {
+            jobj = (JSONObject) user;
+            if (jobj.get("porta").equals(c.getPorta())) {
+                b = false;
+            }
+        }
+        return b;
+    
+    }
+    
+    private void entrar(){
+        try{
+            c = new Client();
+            c.setNomeCliente(tfNome.getText());
+            c.definirServidorIp(tfIpserver.getText());
+            c.setPorta(tfPorta.getText());
+            
+            c.conectarServidor(c.obterServidorIp());
+            c.setIpCliente(c.obterUsuarioSocket().getLocalAddress().getHostAddress());
+            ControleMensagens.dadosEnviados(ControleMensagens.listarMensagem(), c.obterUsuarioSocket());
+            String retorno = ControleMensagens.dadosRecebidos(c.obterUsuarioSocket());
+            System.out.println(retorno + "  retorno");
+            c.listagemUsuarios(retorno);
+            
+            
+            boolean teste = loginVerificacao(c.getQtdUsuariosOnlines());
+            if(teste == false){
+                JOptionPane.showMessageDialog(null, "PORTA DE ACESSO JÁ ESTÁ EM USO NO MOMEMENTO");
+            }else{
+                System.out.println("logar user");
+                ControleMensagens.logar(c.obterUsuarioSocket(), c);
+                OpcoesUsuarios menuUsuarios = new OpcoesUsuarios(c);
+                menuUsuarios.setVisible(true);
+                menuUsuarios.getJlNome().setText(c.getNome());
+                this.dispose();
+            }
+            
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "SERVIDOR FORA DO AR, OU ERRO NO ENDERECO IP");
+        }
     }
 
     /**
@@ -30,10 +86,10 @@ public class Entrar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tfNome = new javax.swing.JTextField();
+        tfPorta = new javax.swing.JTextField();
+        tfIpserver = new javax.swing.JTextField();
+        btEntrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -45,25 +101,25 @@ public class Entrar extends javax.swing.JFrame {
 
         jLabel2.setText("INFORME A PORTA DE ACESSO DO USUÁRIO:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNomeActionPerformed(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        tfPorta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                tfPortaActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfIpserver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfIpserverActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Acessar");
+        btEntrar.setText("Acessar");
 
         jLabel3.setText("INFORME O IP DO SERVIDOR QUE SERÁ CONECTADO: ");
 
@@ -84,11 +140,11 @@ public class Entrar extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfPorta, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfIpserver, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -108,17 +164,17 @@ public class Entrar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfPorta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(29, 29, 29)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfIpserver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -142,17 +198,17 @@ public class Entrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNomeActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfIpserverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIpserverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfIpserverActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void tfPortaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPortaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_tfPortaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +246,7 @@ public class Entrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -198,8 +254,13 @@ public class Entrar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField tfIpserver;
+    private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfPorta;
     // End of variables declaration//GEN-END:variables
+    
+   
+
+
 }
+

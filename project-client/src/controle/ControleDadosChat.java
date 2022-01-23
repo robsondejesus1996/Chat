@@ -40,7 +40,7 @@ public class ControleDadosChat implements Runnable {
                     chatRun = true;
                     conversa = new Conversa(opcoes, sock, clientInfos);
                 }else{
-                    conversa.mensagemDados(dados);
+                    conversa.recebeMensagem(dados);
                 }
             } else {
                 if (jobj.get("instrucao").equals("off")) {

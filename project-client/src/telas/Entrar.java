@@ -120,6 +120,11 @@ public class Entrar extends javax.swing.JFrame {
         });
 
         btEntrar.setText("Acessar");
+        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEntrarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("INFORME O IP DO SERVIDOR QUE SERÁ CONECTADO: ");
 
@@ -209,6 +214,11 @@ public class Entrar extends javax.swing.JFrame {
     private void tfPortaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPortaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPortaActionPerformed
+
+    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+        // TODO add your handling code here:
+        entrar();
+    }//GEN-LAST:event_btEntrarActionPerformed
 
     /**
      * @param args the command line arguments

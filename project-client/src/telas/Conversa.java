@@ -5,8 +5,14 @@
  */
 package telas;
 
+import controle.ControleMensagens;
 import java.awt.event.KeyEvent;
 import java.net.Socket;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -18,18 +24,52 @@ public class Conversa extends javax.swing.JFrame {
      * Creates new form Conversa
      */
     
+    private OpcoesUsuarios menu;
+    private Socket socket;
+    private String mensagens;
+    
     public Conversa() {
         initComponents();
     }
 
-    public Conversa(OpcoesUsuarios opcoes, Socket sock, String clientInfos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Conversa(OpcoesUsuarios menu, Socket socket, String dados) {
+        this.mensagens = "";
+        this.socket = socket;
+        this.menu = menu;
+        initComponents();
+        jLNome.setText(dados.split(";")[0]);
+        edpChat.setEditable(false);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
     }
     
     
-    public void mensagemDados(String dados){
-        
+    public void mensagemDados(){
+        if (tfTexto.getText().length() > 0) {
+            String msg = ControleMensagens.msgChat(menu.getC(), tfTexto.getText());
+            DateFormat df = new SimpleDateFormat("hh:mm");
+            String hora = df.format(new Date());
+            edpChat.setText(mensagens += hora + " " + "Você: " + tfTexto.getText() + "\n");
+            tfTexto.setText("");
+            try {
+                ControleMensagens.dadosEnviados(msg, socket);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "OCORREU UM ERRO DE CONEXAO, PROVAVELMENTE O USUÁRIO SAIU DA APLICAÇÃO");
+                this.dispose();
+            }
+        }
     }
+    
+    
+    public void recebeMensagem(String dados) {
+        JSONObject jobj = ControleMensagens.dadosJson(dados);
+        String nome = (String) jobj.get("nome");
+        String hora = (String) jobj.get("hora");
+        String msg = (String) jobj.get("mensagem");
+        edpChat.setText(mensagens += hora + " " + nome + ": " + msg + "\n");
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,10 +154,18 @@ public class Conversa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
+        mensagemDados();
+
     }//GEN-LAST:event_btEnviarActionPerformed
 
+    
+    
     private void btEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btEnviarKeyPressed
-
+            
+        
+        if(evt.getKeyChar() == KeyEvent.VK_ENTER){
+            mensagemDados();
+        }
     }//GEN-LAST:event_btEnviarKeyPressed
 
     private void btEnviarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btEnviarKeyReleased
@@ -126,6 +174,15 @@ public class Conversa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btEnviarKeyReleased
 
+    
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {
+
+    }
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {
+        ControleMensagens.dadosEnviados(ControleMensagens.OfflineMensagem(""), socket);
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */

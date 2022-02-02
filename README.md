@@ -15,6 +15,8 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 
 * [Requisitos Não Funcionais](#requisitos)
 
+* [Regras de Negócio](#regras)
+
 * [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
 * [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
@@ -38,13 +40,13 @@ devem informar o nome e uma porta para a comunicação entre as redes. Será uti
 através de uma rede de computadores.<br>
 
 <h1>Requisitos Funcionais</h1>
-<b>[RF01]</b> - O sistema deve permitir a verificação do usuário ao fazer o login (Nome usuário e Porta) <br>
+<b>[RF01]</b> - O sistema deve permitir a verificação do usuário ao fazer o login (Porta, endereço) <br>
 <b>[RF02]</b> – O sistema deve permitir o envio de mensagens entre os usuários, a comunicação será direta entre cada usuário, logo será de forma privada. <br>
 <b>[RF03]</b> - O sistema deve ter um mecanismo para retorna um erro de execução se o Server não estiver em execução. <br>
 <b>[RF04]</b> - O sistema deve ter em cada tela ao entrar no sistema o nome especificado do cliente que acabou de logar no sistema. <br>
 <b>[RF05]</b> - O sistema deve ter um botão para sempre atualizar a lista de usuários onlines no momento. Assim vamos conseguir ter a informação do nome e a rede que esse usuário está. <br>
 <b>[RF06]</b> - O sistema ao iniciar uma conversa com outro usuário deve abrir duas janelas de chat, uma para quem inicio a conversa e outra para quem está sendo solicitado no momento da conversa. <br>
-<b>[RF07]</b> - O sistema deve identificar se um usuário fechou a janela do chat com outro usuário. Assim as duas janelas devem ser encerradas ao mesmo tempo. <br>
+
 
 
 ---
@@ -52,6 +54,16 @@ através de uma rede de computadores.<br>
 ## [Requisitos Não Funcionais](##requisitos)
 
 
+
+
+## [Regras de Negócio](#regras)
+
+<h1>Regras de Negócio</h1>
+
+<b>[RN-01]</b> - Tela inicial de cadastro deve informar os campos de nome, porta de acesso e endereço de acesso ao servidor<br>
+<b>[RN-02]</b> - Na tela de cadastro para entrar no sistema deve informar um pequeno tutorial para entrar no sistema <br>
+<b>[RN-03]</b> - Na tela de opções de usuários deve ter uma lista de usuários conectados, com os nomes deles com o seu respectivo ip, e também dois botões uma para iniciar a conversa e outrar para atualizar a lista de usuários onlines <br>
+<b>[RN-04]</b> - Sobre a atualização de usuários removidos, se um usuário encerrar a aplicação, o servidor deverá removê-lo da lista de usuários conectados<br>
 
 
 ---

@@ -14,7 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import modelo.Client;
+import modelo.Cliente;
 import org.json.simple.JSONObject;
 
 /**
@@ -28,7 +28,7 @@ public class OpcoesUsuarios extends javax.swing.JFrame {
      */
     
     
-    private Client c;
+    private Cliente c;
     private ArrayList<String> usuarios;
     private ServerSocket serverSocketCliente;
     private boolean executando;
@@ -36,7 +36,7 @@ public class OpcoesUsuarios extends javax.swing.JFrame {
     
     
     
-    public OpcoesUsuarios(Client c) {
+    public OpcoesUsuarios(Cliente c) {
         executando = false;
         serverSocketCliente = null;
         this.jList = new JList<>();
@@ -208,7 +208,7 @@ public class OpcoesUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Client getC() {
+    public Cliente getC() {
         return c;
     }
 

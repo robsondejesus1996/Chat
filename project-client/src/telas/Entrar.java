@@ -8,7 +8,7 @@ package telas;
 import controle.ControleMensagens;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import modelo.Client;
+import modelo.Cliente;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -22,7 +22,7 @@ public class Entrar extends javax.swing.JFrame {
      * Creates new form Entrar
      */
     
-    private Client c;
+    private Cliente c;
     
     public Entrar() {
         initComponents();
@@ -44,7 +44,7 @@ public class Entrar extends javax.swing.JFrame {
     
     private void entrar(){
         try{
-            c = new Client();
+            c = new Cliente();
             c.setNomeCliente(tfNome.getText());
             c.definirServidorIp(tfIpserver.getText());
             c.setPorta(tfPorta.getText());

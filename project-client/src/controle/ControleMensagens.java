@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Client;
+import modelo.Cliente;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -61,7 +61,7 @@ public class ControleMensagens {
         return jobj;
     }
 
-    public static String msgChat(Client client, String msg) {
+    public static String msgChat(Cliente client, String msg) {
         DateFormat formatacao = new SimpleDateFormat("hh:mm");
         String horario = formatacao.format(new Date());
 
@@ -101,12 +101,12 @@ public class ControleMensagens {
         return l.toJSONString();
     }
 
-    public static void logar(Socket socket, Client client) {
+    public static void logar(Socket socket, Cliente client) {
         dadosEnviados(informacoesUsuario(client), socket);
         System.out.println("USUARIO CADASTRO COM SUCESSO!");
     }
 
-    public static String informacoesUsuario(Client clint) {
+    public static String informacoesUsuario(Cliente clint) {
         JSONObject dados = new JSONObject();
         dados.put("nome", clint.getNome());
         dados.put("enderecoip", clint.getIpCliente());

@@ -114,6 +114,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de inicio de chat:</h2>
+
 ![1](https://user-images.githubusercontent.com/31260719/152686747-f98b015a-1658-4dd2-a4e5-ccd3d3fa0ad4.png)
 
 
@@ -127,6 +128,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de envio de mensagem:</h2>
+
 ![2](https://user-images.githubusercontent.com/31260719/152686772-c16a064d-9428-4e68-8c40-1ef1f1b459fa.png)
 
 
@@ -139,6 +141,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de saindo do chat:</h2>
+
 ![2](https://user-images.githubusercontent.com/31260719/152686772-c16a064d-9428-4e68-8c40-1ef1f1b459fa.png)
 
 

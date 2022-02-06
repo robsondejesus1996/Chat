@@ -106,10 +106,13 @@ comunicação entre clientes/servidores)
 
 <h1>Especificações mensagens trocadas entre cliente/cliente</h1>
 
-<b>Inicio chat:</b><br>
-<item>Conteúdo Mensagem:</item>{teste: 'teste', teste:'teste', teste:'teste'}
-<item>Descrição:</item> descrição
-<item>Return:</item> Nulo
+<ul>
+    <b>Inicio chat:</b><br>
+    <li>Conteúdo Mensagem: {nome: 'nome', enderecoip:'enderecoip', porta:'porta'}</li>
+    <li>Descrição: dados enviados contendo informações para o usuário iniciar</li> 
+    <li>Return: Nulo</li> 
+</ul>
+
 
 ---
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)

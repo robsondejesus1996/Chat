@@ -185,7 +185,7 @@ comunicação entre clientes/servidores)
 <ul>
     <b>Desconexão ou exclusão de usuário:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'off||excluir', porta: 'porta do usuario'}</li>
-    <li>Descrição: desconecta ou deletar usuário do servidor/li> 
+    <li>Descrição: desconecta ou deletar usuário do servidor </li> 
     <li>Return: Nulo</li> 
 </ul>
 

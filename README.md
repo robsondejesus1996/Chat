@@ -163,6 +163,9 @@ comunicação entre clientes/servidores)
 
 <h2>Diagrama de comunicação para o processo de cadastro no servidor:</h2>
 
+![4](https://user-images.githubusercontent.com/31260719/152687505-2cff70ef-99fd-4860-bbd5-3a1d1823b416.png)
+
+
 
 <ul>
     <b>Lista de usuários conectados:</b><br>
@@ -172,6 +175,9 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de atualização de conectados:</h2>
+
+![5](https://user-images.githubusercontent.com/31260719/152687538-d621825c-9098-4d29-a6a9-93f26f4e686c.png)
+
 
 
 
@@ -184,6 +190,9 @@ comunicação entre clientes/servidores)
 
 <h2>Diagrama de comunicação para o processo de desconexão ou exclusão de usuário:</h2>
 
+![6](https://user-images.githubusercontent.com/31260719/152687581-ffdca173-343a-412b-b7f3-b4ec68f4c6b7.png)
+
+
 
 
 <ul>
@@ -194,6 +203,9 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de excluir usuário do servidor:</h2>
+
+![7](https://user-images.githubusercontent.com/31260719/152687645-ef995536-1269-4664-8575-fa15435dc3d0.png)
+
 
 
 * [Diagramas](#diagramas)

@@ -27,7 +27,7 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 ---
 
 ## [Equipe](#equipe)
- - [**Robson de Jesus**](mailto:robson.jesus@edu.udesc.br) - [robsondejesus1996](https://github.com/robsondejesus1996)
+ - [**Robson de Jesus**](mailto:robsondejesus1996@hotmail.com) - [robsondejesus1996](https://github.com/robsondejesus1996)
 
 
 ---
@@ -52,6 +52,35 @@ através de uma rede de computadores.<br>
 ---
 
 ## [Requisitos Não Funcionais](##requisitos)
+
+<h1>Requisitos são funcionais</h1>
+
+<b>[RNF1]</b> -  Deve ser distribuído e executar simultanamente em no mínimo 3 clientes (hosts) diferentes.<br>
+
+<b>[RNF2]</b> -  Se necessário, pode ser implementado um servidor para ser acessado pelos clientes.<br>
+
+<p>a) Este servidor jamais deve criar conexões com clientes, apenas receber conexões.</p>
+b) Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em
+caso de dúvida, consulte o professor.
+
+
+<b>[RNF3]</b> -  A comunicação pode ser realizada através de (a equipe escolhe a opção desejada):<br>
+a) Sockets; ou
+b) RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013); ou
+c) CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).
+
+
+<b>[RNF4]</b> -  Se utilizar Sockets no RNF3, então deve-se observar os seguintes requisitos:<br>
+a) Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
+b) Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou XML.
+Não é permitido o uso de serialização de objetos.
+
+
+<b>[RNF5]</b> -  A aplicação cliente deve ter interface gráfica.<br>
+
+a) A equipe pode utilizar interface gráfica disponível em outros projetos, citando a fonte/projeto.
+MAS ATENÇÃO: o projeto utilizado como base não pode ser distribuído (não pode já ter
+comunicação entre clientes/servidores)
 
 
 

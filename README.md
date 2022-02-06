@@ -35,9 +35,8 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 ## [Descrição e Requisitos Funcionais](#descricao)
 
 <h1>Descrição</h1>
-O trabalho tem como objetivo desenvolver uma aplicação Servivor/Cliente e Cliete/Cliente P2P para a troca de mensagens. Logo será desenvolvido aqui uma aplicação estilo Messenger que os usuários ao entrar<br>
-devem informar o nome e uma porta para a comunicação entre as redes. Será utilizado  uma tecnologia chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos<br>
-através de uma rede de computadores.<br>
+O presente trabalho tem como objetivo desenvolver uma aplicação de troca de mensagens(Chat) essa aplicação suporta múltiplos usuários. Logo será desenvolvido aqui uma aplicação estilo Messenger que os usuários<br> ao entrar devem informar o nome, uma porta para a comunicação entre a rede, e o endereço da maquina do servidor. Sobre a comunicação dos clientes ele será feita de modo privado.Será utilizado  uma tecnologia <br> chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos através de uma rede de computadores.<br>
+
 
 <h1>Requisitos Funcionais</h1>
 <b>[RF01]</b> - O sistema deve permitir a verificação do usuário ao fazer o login (Porta, endereço) <br>
@@ -59,21 +58,21 @@ através de uma rede de computadores.<br>
 
 <b>[RNF2]</b> -  Se necessário, pode ser implementado um servidor para ser acessado pelos clientes.<br>
 
-<p>a) Este servidor jamais deve criar conexões com clientes, apenas receber conexões.</p>
-b) Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em
-caso de dúvida, consulte o professor.
+<p>a) Este servidor jamais deve criar conexões com clientes, apenas receber conexões. X</p>
+<p>b) Não se deve utilizar nenhuma implementação pronta de qualquer servidor (ex: Express JS). Em
+caso de dúvida, consulte o professor.</p>
 
 
 <b>[RNF3]</b> -  A comunicação pode ser realizada através de (a equipe escolhe a opção desejada):<br>
-a) Sockets; ou
-b) RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013); ou
-c) CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).
+<p>a) Sockets; ou</p>
+<p>b) RMI. Ler seções 5.4 e 5.5 de (COULOURIS, DOLLIMORE, et al., 2013); ou</p>
+<p>c) CORBA. Ler seção 8.3 de (COULOURIS, DOLLIMORE, et al., 2013).</p>
 
 
 <b>[RNF4]</b> -  Se utilizar Sockets no RNF3, então deve-se observar os seguintes requisitos:<br>
-a) Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).
-b) Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou XML.
-Não é permitido o uso de serialização de objetos.
+<p>a) Sockets ociosos não podem existir (todos devem ser fechados logo após a comunicação).</p>
+<p>b) Os dados enviados entre cliente/servidor e cliente/cliente podem estar no formato JSON ou XML.
+Não é permitido o uso de serialização de objetos.</p>
 
 
 <b>[RNF5]</b> -  A aplicação cliente deve ter interface gráfica.<br>

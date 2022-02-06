@@ -114,7 +114,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de inicio de chat:</h2>
----
+
 
 <ul>
     <b>Envio de mensagem:</b><br>
@@ -124,7 +124,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de envio de mensagem:</h2>
----
+
 
 <ul>
     <b>Usuário saindo:</b><br>
@@ -136,7 +136,7 @@ comunicação entre clientes/servidores)
 <h2>Diagrama de comunicação para o processo de saindo do chat:</h2>
 
 
----
+
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
 
@@ -152,7 +152,7 @@ comunicação entre clientes/servidores)
 </ul>
 
 <h2>Diagrama de comunicação para o processo de cadastro no servidor:</h2>
----
+
 
 <ul>
     <b>Lista de usuários conectados:</b><br>
@@ -164,7 +164,7 @@ comunicação entre clientes/servidores)
 <h2>Diagrama de comunicação para o processo de atualização de conectados:</h2>
 
 
----
+
 <ul>
     <b>Desconexão ou exclusão de usuário:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'off||excluir', porta: 'porta do usuario'}</li>
@@ -175,7 +175,7 @@ comunicação entre clientes/servidores)
 <h2>Diagrama de comunicação para o processo de desconexão ou exclusão de usuário:</h2>
 
 
----
+
 <ul>
     <b>Deletar usuário do servidor:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'excluir', porta: 'porta do usuario'}</li>
@@ -186,6 +186,13 @@ comunicação entre clientes/servidores)
 <h2>Diagrama de comunicação para o processo de excluir usuário do servidor:</h2>
 
 
+* [Diagramas](#diagramas)
 
 
+---
 
+## [Diagramas](#diagramas)
+ <h1> Diagrama de classes preliminar </h1>
+
+
+![diagrama_classes_preliminar](https://user-images.githubusercontent.com/31260719/152685359-0f8597a0-640b-4d73-b556-71fd4460951d.png)

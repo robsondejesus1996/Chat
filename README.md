@@ -108,10 +108,32 @@ comunicação entre clientes/servidores)
 
 <ul>
     <b>Inicio chat:</b><br>
-    <li>Conteúdo Mensagem: {nome: 'nome', enderecoip:'enderecoip', porta:'porta'}</li>
+    <li>Conteúdo Mensagem: {nome: 'nome', enderecoip: 'enderecoip', porta: 'porta'}</li>
     <li>Descrição: dados enviados contendo informações para o usuário iniciar</li> 
     <li>Return: Nulo</li> 
 </ul>
+
+<h2>Diagrama de comunicação para o processo de inicio de chat:</h2>
+---
+
+<ul>
+    <b>Envio de mensagem:</b><br>
+    <li>Conteúdo Mensagem: {nome: 'nome', hora: 'horário de envio', mensagem: 'mensagem'}</li>
+    <li>Descrição: dados da mensagem sendo enviados para outro usuário</li> 
+    <li>Return: Nulo</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de envio de mensagem:</h2>
+---
+
+<ul>
+    <b>Usuário saindo:</b><br>
+    <li>Conteúdo Mensagem: {instrução: 'off'}</li>
+    <li>Descrição: finalizar o chat atual</li> 
+    <li>Return: Nulo</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de saindo do chat:</h2>
 
 
 ---
@@ -120,7 +142,48 @@ comunicação entre clientes/servidores)
 
 
 
+<h1>Especificações mensagens trocadas entre cliente/servidor</h1>
 
+<ul>
+    <b>Cadastro se usuário no servidor:</b><br>
+    <li>Conteúdo Mensagem: {nome: 'nome', enderecoip: 'ip do usuario', porta: 'porta do usuario'}</li>
+    <li>Descrição: Cadastro do usuário e conexão ao servidor</li> 
+    <li>Return: Nulo</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de cadastro no servidor:</h2>
+---
+
+<ul>
+    <b>Lista de usuários conectados:</b><br>
+    <li>Conteúdo Mensagem: {instrucao:'atualizar',}</li>
+    <li>Descrição: Pedido ao servidor todos os usuários conectados</li> 
+    <li>Return List-Json: {nome:'nome do usuario, enderecoip:'endereco ip do usuario', porta:'porta'}</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de atualização de conectados:</h2>
+
+
+---
+<ul>
+    <b>Desconexão ou exclusão de usuário:</b><br>
+    <li>Conteúdo Mensagem: {instrucao: 'off||excluir', porta: 'porta do usuario'}</li>
+    <li>Descrição: desconecta ou deletar usuário do servidor/li> 
+    <li>Return: Nulo</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de desconexão ou exclusão de usuário:</h2>
+
+
+---
+<ul>
+    <b>Deletar usuário do servidor:</b><br>
+    <li>Conteúdo Mensagem: {instrucao: 'excluir', porta: 'porta do usuario'}</li>
+    <li>Descrição: deletar usuário do servidor/li> 
+    <li>Return: Nulo</li> 
+</ul>
+
+<h2>Diagrama de comunicação para o processo de excluir usuário do servidor:</h2>
 
 
 

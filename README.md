@@ -35,8 +35,12 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 ## [Descrição e Requisitos Funcionais](#descricao)
 
 <h1>Descrição</h1>
+<p>
 O presente trabalho tem como objetivo desenvolver uma aplicação de troca de mensagens(Chat) essa aplicação suporta múltiplos usuários. Logo será desenvolvido aqui uma aplicação estilo Messenger que os usuários<br> ao entrar devem informar o nome, uma porta para a comunicação entre a rede, e o endereço da maquina do servidor. Sobre a comunicação dos clientes ele será feita de modo privado.Será utilizado  uma tecnologia <br> chamada socket (network socket) que seria um ponto final de um fluxo de comunicação entre porcessos através de uma rede de computadores.<br>
+</p>
 
+
+## [Requisitos Não Funcionais](##requisitos)
 
 <h1>Requisitos Funcionais</h1>
 <b>[RF01]</b> - O sistema deve permitir a verificação do usuário ao fazer o login (Porta, endereço) <br>
@@ -94,6 +98,19 @@ comunicação entre clientes/servidores)
 <b>[RN-04]</b> - Sobre a atualização de usuários removidos, se um usuário encerrar a aplicação, o servidor deverá removê-lo da lista de usuários conectados<br>
 
 
+
+---
+
+
+## [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
+
+<h1>Especificações mensagens trocadas entre cliente/cliente</h1>
+
+<b>Inicio chat:</b><br>
+<item>Conteúdo Mensagem:</item>{teste: 'teste', teste:'teste', teste:'teste'}
+<item>Descrição:</item> descrição
+<item>Return:</item> Nulo
+
 ---
 ## [Especificação Mensagens(Cliente/Servidor)](#ClienteServidor)
 
@@ -101,10 +118,7 @@ comunicação entre clientes/servidores)
 
 
 
----
 
-
-## [Especificação Mensagens(Cliente/Cliente)](#ClienteCliente)
 
 
 

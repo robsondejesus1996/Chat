@@ -142,7 +142,8 @@ comunicação entre clientes/servidores)
 
 <h2>Diagrama de comunicação para o processo de saindo do chat:</h2>
 
-![2](https://user-images.githubusercontent.com/31260719/152686772-c16a064d-9428-4e68-8c40-1ef1f1b459fa.png)
+![3](https://user-images.githubusercontent.com/31260719/152687774-a98a36af-554b-4d82-92b7-295b4d1bcbd8.png)
+
 
 
 
@@ -198,7 +199,7 @@ comunicação entre clientes/servidores)
 <ul>
     <b>Deletar usuário do servidor:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'excluir', porta: 'porta do usuario'}</li>
-    <li>Descrição: deletar usuário do servidor/li> 
+    <li>Descrição: deletar usuário do servidor</li> 
     <li>Return: Nulo</li> 
 </ul>
 

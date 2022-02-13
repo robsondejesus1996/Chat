@@ -161,12 +161,14 @@ comunicação entre clientes/servidores)
     <b>Cadastro se usuário no servidor:</b><br>
     <li>Conteúdo Mensagem: {nome: 'nome', enderecoip: 'ip do usuario', porta: 'porta do usuario'}</li>
     <li>Descrição: Cadastro do usuário e conexão ao servidor</li> 
-    <li>Return: Nulo</li> 
+    <li>Return: Caso porta de acesso e endereco correto: USUARIO CADASTRO COM SUCESSO </li>
+    <li>Return: Caso porta de acesso e endereco errado: PORTA DE ACESSO JÁ ESTÁ EM USO NO MOMENTO</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de cadastro no servidor:</h2>
 
-![4](https://user-images.githubusercontent.com/31260719/152687505-2cff70ef-99fd-4860-bbd5-3a1d1823b416.png)
+![4](https://user-images.githubusercontent.com/31260719/153759996-4b4609c0-d03f-4c54-9461-e3ea74fe2db0.png)
+
 
 
 
@@ -188,12 +190,13 @@ comunicação entre clientes/servidores)
     <b>Desconexão ou exclusão de usuário:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'off||excluir', porta: 'porta do usuario'}</li>
     <li>Descrição: desconecta ou deletar usuário do servidor </li> 
-    <li>Return: Nulo</li> 
+    <li>Return: usuário indisponível</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de desconexão ou exclusão de usuário:</h2>
 
-![6](https://user-images.githubusercontent.com/31260719/152687581-ffdca173-343a-412b-b7f3-b4ec68f4c6b7.png)
+![6](https://user-images.githubusercontent.com/31260719/153760108-8dbe0c33-4d23-474e-8eab-a00e6aecffea.png)
+
 
 
 
@@ -202,12 +205,13 @@ comunicação entre clientes/servidores)
     <b>Deletar usuário do servidor:</b><br>
     <li>Conteúdo Mensagem: {instrucao: 'excluir', porta: 'porta do usuario'}</li>
     <li>Descrição: deletar usuário do servidor</li> 
-    <li>Return: Nulo</li> 
+    <li>Return: porta de acesso excluida("porta")</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de excluir usuário do servidor:</h2>
 
-![7](https://user-images.githubusercontent.com/31260719/152687645-ef995536-1269-4664-8575-fa15435dc3d0.png)
+![7](https://user-images.githubusercontent.com/31260719/153760164-1e2d1745-6b49-4d75-a58a-5fd60def863b.png)
+
 
 
 

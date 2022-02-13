@@ -24,6 +24,8 @@ Trabalho realizado para a disciplina de Desenvolvimento de Sistemas Paralelos e 
 * [Diagramas](#diagramas)
 
 
+
+
 ---
 
 ## [Equipe](#equipe)

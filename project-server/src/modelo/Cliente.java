@@ -20,7 +20,7 @@ import telas.Entrar;
  *
  * @author admin
  */
-public class Client {
+public class Cliente {
     private String nomeCliente;
     private String ipCliente;
     private String porta;
@@ -30,14 +30,14 @@ public class Client {
     private JSONArray qtdUsuariosOnlines;
     private boolean execute;
 
-    public Client(String nome, String ip, String porta, String serverIp) {
+    public Cliente(String nome, String ip, String porta, String serverIp) {
         this.nomeCliente = nome;
         this.ipCliente = ip;
         this.porta = porta;
         this.stringServerIp = serverIp;
     }
 
-    public Client() {
+    public Cliente() {
     }
 
     public void conectarServidor(String ip) throws IOException {
@@ -138,7 +138,7 @@ public class Client {
 
             this.qtdUsuariosOnlines = (JSONArray) obj;
         } catch (ParseException ex) {
-            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

@@ -112,12 +112,13 @@ comunicação entre clientes/servidores)
     <b>Inicio chat:</b><br>
     <li>Conteúdo Mensagem: {nome: 'nome', enderecoip: 'enderecoip', porta: 'porta'}</li>
     <li>Descrição: dados enviados contendo informações para o usuário iniciar</li> 
-    <li>Return: Nulo</li> 
+    <li>Return: abrir chat</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de inicio de chat:</h2>
 
-![1](https://user-images.githubusercontent.com/31260719/152686747-f98b015a-1658-4dd2-a4e5-ccd3d3fa0ad4.png)
+![1](https://user-images.githubusercontent.com/31260719/153760517-b1738066-be12-45e3-8629-cca8e6019826.png)
+
 
 
 
@@ -126,12 +127,12 @@ comunicação entre clientes/servidores)
     <b>Envio de mensagem:</b><br>
     <li>Conteúdo Mensagem: {nome: 'nome', hora: 'horário de envio', mensagem: 'mensagem'}</li>
     <li>Descrição: dados da mensagem sendo enviados para outro usuário</li> 
-    <li>Return: Nulo</li> 
+    <li>Return: Sem return</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de envio de mensagem:</h2>
 
-![2](https://user-images.githubusercontent.com/31260719/152686772-c16a064d-9428-4e68-8c40-1ef1f1b459fa.png)
+![2](https://user-images.githubusercontent.com/31260719/153760610-79bc62bf-ff53-4bbc-a536-c1f4c0ff8977.png)
 
 
 
@@ -139,12 +140,12 @@ comunicação entre clientes/servidores)
     <b>Usuário saindo:</b><br>
     <li>Conteúdo Mensagem: {instrução: 'off'}</li>
     <li>Descrição: finalizar o chat atual</li> 
-    <li>Return: Nulo</li> 
+    <li>Return: close chat()</li> 
 </ul>
 
 <h2>Diagrama de comunicação para o processo de saindo do chat:</h2>
 
-![3](https://user-images.githubusercontent.com/31260719/152687774-a98a36af-554b-4d82-92b7-295b4d1bcbd8.png)
+![3](https://user-images.githubusercontent.com/31260719/153760732-b98fbddf-fb67-41bc-9783-883fe5701b51.png)
 
 
 
@@ -221,7 +222,8 @@ comunicação entre clientes/servidores)
 ---
 
 ## [Diagramas](#diagramas)
- <h1> Diagrama de classes preliminar </h1>
+ <h1> Diagrama de classes</h1>
 
 
-![diagrama_classes_preliminar](https://user-images.githubusercontent.com/31260719/152685359-0f8597a0-640b-4d73-b556-71fd4460951d.png)
+![diagrama_classes](https://user-images.githubusercontent.com/31260719/153761293-c6e285eb-2cc9-4636-8220-f6ba7f97f99f.png)
+

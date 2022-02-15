@@ -30,7 +30,7 @@ public class Entrar extends javax.swing.JFrame {
     
     
      private boolean loginVerificacao(JSONArray listUsers){
-         JSONObject jobj = new JSONObject();
+        JSONObject jobj = new JSONObject();
         boolean b = true;
         for (Object user : listUsers) {
             jobj = (JSONObject) user;
